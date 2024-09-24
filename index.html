@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dompet+</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-top: 20px;
+            width: 300px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Selamat Datang di Dompet+</h1>
+        <button id="showFormBtn">Masuk</button>
+
+        <div id="formContainer" class="hidden">
+            <div id="loginForm" class="form-container">
+                <h2>Login</h2>
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+                <p>Belum punya akun? <a href="#" onclick="toggleForms()">Daftar</a></p>
+            </div>
+
+            <div id="registerForm" class="form-container hidden">
+                <h2>Register</h2>
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button onclick="register()">Daftar</button>
+                <p>Sudah punya akun? <a href="#" onclick="toggleForms()">Masuk</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('showFormBtn').onclick = function() {
+            document.getElementById('formContainer').classList.toggle('hidden');
+        };
+
+        function toggleForms() {
+            document.getElementById('loginForm').classList.toggle('hidden');
+            document.getElementById('registerForm').classList.toggle('hidden');
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            alert(`Login dengan ${username}`);
+        }
+
+        function register() {
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            alert(`Registrasi ${username} berhasil`);
+        }
+    </script>
+
+</body>
+</html>
